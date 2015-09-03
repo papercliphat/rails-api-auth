@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: robosto
+  pool: 5
+  username: postgres
+  password: 46mk9xa23&
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: robosto
+  pool: 5
+  username: postgres
+  password: 46mk9xa23&
+
+
+Production:
+  adapter: postgresql
+  encoding: unicode
+  database: robosto
+  pool: 5
+  username: postgres
+  password: 46mk9xa23&
