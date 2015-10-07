@@ -2,9 +2,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: robosto
-  pool: 5
   username: postgres
-  password: 46mk9xa23&
+  password: 9x73j48k
 
 test:
   adapter: postgresql
@@ -12,7 +11,7 @@ test:
   database: robosto
   pool: 5
   username: postgres
-  password: 46mk9xa23&
+  password: 9x73j48k
 
 
 Production:
@@ -21,4 +20,4 @@ Production:
   database: robosto
   pool: 5
   username: postgres
-  password: 46mk9xa23&
+  password: 9x73j48k

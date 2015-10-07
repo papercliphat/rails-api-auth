@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831162411) do
+ActiveRecord::Schema.define(version: 20150930011239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "user_names", force: :cascade do |t|
+    t.string   "user_name"
+    t.integer  "user_id"
+    t.boolean  "banned",      default: false
+    t.datetime "banned_date"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "user_names", ["user_id"], name: "index_user_names_on_user_id", using: :btree
+  add_index "user_names", ["user_name", "banned"], name: "index_user_names_on_user_name_and_banned", using: :btree
+  add_index "user_names", ["user_name"], name: "index_user_names_on_user_name", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string   "username"
+    t.string   "email"
     t.string   "password_digest"
     t.string   "auth_token"
-    t.string   "email"
     t.integer  "mega_trust_score"
     t.integer  "mega_mod_score"
     t.string   "password_reset_token"
@@ -29,4 +41,7 @@ ActiveRecord::Schema.define(version: 20150831162411) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+
+  add_foreign_key "user_names", "users"
 end
